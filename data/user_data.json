@@ -1,0 +1,18 @@
+{
+    "user": {
+        "username": "User",
+        "email": "user@example.com",
+        "profile_pic": "default.png",
+        "phone": ""
+    },
+    "blocked_sites": [
+        "facebook.com",
+        "instagram.com",
+        "youtube.com"
+    ],
+    "settings": {
+        "blocking_active": true,
+        "block_until": "2025-12-30T00:30:37.063722",
+        "strict_mode": true
+    }
+}
