@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Get Date
       id: get-date
@@ -18,20 +18,18 @@ jobs:
         echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
     - name: Cache Buildozer
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: .buildozer
         key: ${{ runner.os }}-buildozer-${{ hashFiles('buildozer.spec') }}-${{ steps.get-date.outputs.date }}
 
     - name: Build with Buildozer
-      uses: ArtemSerebrennikov/buildozer-action@v1
+      uses: kivy/buildozer-action@master
       with:
-        buildozer_version: master
-        command: android debug
-        repository_root: .
+        python_version: 3.10
 
     - name: Upload APK
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: refocus-apk
         path: bin/*.apk
