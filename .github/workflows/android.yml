@@ -24,9 +24,10 @@ jobs:
         key: ${{ runner.os }}-buildozer-${{ hashFiles('buildozer.spec') }}-${{ steps.get-date.outputs.date }}
 
     - name: Build with Buildozer
-      uses: kivy/buildozer-action@master
+      uses: ArtemSBulgakov/buildozer-action@v1
       with:
-        python_version: 3.10
+        buildozer_version: master
+        command: android debug
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
